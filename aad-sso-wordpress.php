@@ -7,8 +7,6 @@ Description: Plugin para autenticarse en wordpress usando el servicio de Directo
 Author: Leandro Moreno
 Version: 0.8.0
 Author URI: https://tecnologia.uniandes.edu.co
-Text Domain: aad-sso-wordpress
-Domain Path: /languages/
 */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
