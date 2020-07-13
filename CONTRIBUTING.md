@@ -2,10 +2,10 @@
 This WordPress plugin is actively maintained by contributors like you.  Contributing is easy.
 
 ## Getting Started
-If you would like to contribute, but you don't have any ideas where to begin, check the **main** [Issue Tracker](https://github.com/psignoret/aad-sso-wordpress/issues).  Issues submitted on your fork's Issue tracker may not be seen.
+If you would like to contribute, but you don't have any ideas where to begin, check the **main** [Issue Tracker](https://github.com/psignoret/aad-sso-uniandes-wordpress/issues).  Issues submitted on your fork's Issue tracker may not be seen.
 
 ## Reporting Bugs
-- Make sure the bug doesn't already exist (search the [Issue Tracker](https://github.com/psignoret/aad-sso-wordpress/issues)).  If the bug has already been submitted, use the discussion thread on the issue to add any helpful supporting details.
+- Make sure the bug doesn't already exist (search the [Issue Tracker](https://github.com/psignoret/aad-sso-uniandes-wordpress/issues)).  If the bug has already been submitted, use the discussion thread on the issue to add any helpful supporting details.
 - Include any errors you receive.  Please redact any information that might identify your Azure AD instances.
 - Include any steps to reproduce the bug.
 - Include the expected output or behavior.  It should be clear _why_ you think you found a bug.
@@ -17,7 +17,7 @@ You'll need
 - A cursory knowledge of Git.
 
 ### 1. Fork the repository.
-1. From the [psignoret/aad-sso-wordpress](https://github.com/psignoret/aad-sso-wordpress) page, fork the repository to your account.
+1. From the [psignoret/aad-sso-uniandes-wordpress](https://github.com/psignoret/aad-sso-uniandes-wordpress) page, fork the repository to your account.
 2. Navigate to the `wp-content/plugins` folder on your WordPress installation
 3. Clone your fork using `git clone <your-github-clone-url>`
 
@@ -30,12 +30,12 @@ You'll need
 4. `git push` to push the local repository to your GitHub fork.
 
 ### 3. Make a pull request
-1. Navigate to your GitHub fork (https://github.com/[your github username]/aad-sso-wordpress)
+1. Navigate to your GitHub fork (https://github.com/[your github username]/aad-sso-uniandes-wordpress)
 2. Click the "New Pull Request" button
 3. Confirm your pull request and click "Create pull request"
 4. Pay attention to your email and notifications.  Your commit will be reviewed before it is merged with the master branch. **This is a collaborative process**
 
 ### 4. Things to keep in mind
-1. All strings that are presented to the user should be be `i18n` ready.  The text domain is set to `aad-sso-wordpress`. Please read [i18n For WordPress Developers](https://codex.wordpress.org/I18n_for_WordPress_Developers) and [How To Internationalize Your Plugin](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/)
+1. All strings that are presented to the user should be be `i18n` ready.  The text domain is set to `aad-sso-uniandes-wordpress`. Please read [i18n For WordPress Developers](https://codex.wordpress.org/I18n_for_WordPress_Developers) and [How To Internationalize Your Plugin](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/)
 2. All class members and functions should not include `aadsso` prefixes.  However, any data that will exist outside the scope should be namespaced `aadsso_` to prevent conflicts.
 3. WordPress Coding Style should be adhered to.  Before your pull request, check for common Paren Spacing and Yoda Style errors.
