@@ -1,14 +1,15 @@
 <?php
 
 /*
-Plugin Name: Single Sign-on with Azure Active Directory
-Plugin URI: http://github.com/psignoret/aad-sso-wordpress
-Description: Allows you to use your organization's Azure Active Directory user accounts to log in to WordPress. If your organization is using Office 365, your user accounts are already in Azure Active Directory. This plugin uses OAuth 2.0 to authenticate users, and the Microsoft Graph API to get group membership and other details.
-Author: Philippe Signoret
-Version: 0.7.0
-Author URI: https://www.psignoret.com/
+Plugin Name: Single Sign-on con el Directorio activo de Azure
+Plugin URI: https://github.com/donleandro/aad-sso-wordpress
+Description: Plugin para autenticarse en wordpress usando el servicio de Directorio activo de Azure. Basado en el codigo de http://github.com/psignoret/aad-sso-wordpress
+Author: Leandro Moreno
+Version: 0.8.0
+Author URI: https://tecnologia.uniandes.edu.co
 Text Domain: aad-sso-wordpress
 Domain Path: /languages/
+*/
 */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
