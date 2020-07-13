@@ -10,7 +10,6 @@ Author URI: https://tecnologia.uniandes.edu.co
 Text Domain: aad-sso-wordpress
 Domain Path: /languages/
 */
-*/
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
