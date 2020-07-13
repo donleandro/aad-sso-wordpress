@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2014-2016 Philippe Signoret and the contributors of the "Single 
+Copyright (c) 2014-2020 Philippe Signoret and the contributors of the "Single 
 Sign-on with Azure Active Directory" project
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
