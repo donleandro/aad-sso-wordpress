@@ -156,13 +156,13 @@ class AADSSO {
 			'aad_auto_forward_login',
 			$this->settings->enable_auto_forward_to_aad
 		);
-		
+
 		/*
-		 * This offers a query parameter to offer an easy method to skip any sort of automatic 
+		 * This offers a query parameter to offer an easy method to skip any sort of automatic
 		 * redirect to Azure AD, displaying the login form instead. This check is intentionally
 		 * done after the 'aad_auto_forward_login' filter is applied, to ensure it also overrides
 		 * any filters.
-		 */ 
+		 */
 		if ( isset( $_GET['aadsso_no_redirect'] ) ) {
 			AADSSO::debug_log( 'Skipping automatic redirects to Azure AD.' );
 			$auto_redirect = FALSE;
@@ -311,7 +311,7 @@ class AADSSO {
 					// Of the AAD groups defined in the settings, get only those where the user is a member
 					$group_ids         = array_keys( $this->settings->aad_group_to_wp_role_map );
 					$group_memberships = AADSSO_GraphHelper::user_check_member_groups( $jwt->oid, $group_ids );
-					
+
 					// Validate response to throw an early error if unable to check group membership.
 					if ( isset( $group_memberships->value ) ) {
 						AADSSO::debug_log( sprintf(
@@ -325,7 +325,7 @@ class AADSSO {
 							sprintf(
 								__( 'ERROR: Unable to check group membership with Microsoft Graph: '
 									. '<b>%s</b> %s<br />%s', 'aad-sso-wordpress' ),
-								$group_memberships->error->code, 
+								$group_memberships->error->code,
 								$group_memberships->error->message,
 								json_encode( $group_memberships->error->innerError )
 							)
@@ -334,7 +334,7 @@ class AADSSO {
 						AADSSO::debug_log( 'Unexpected response to checkMemberGroups: ' . json_encode( $group_memberships ) );
 						return new WP_Error(
 							'unexpected_response_to_checkMemberGroups',
-							__( 'ERROR: Unexpected response when checking group membership with Microsoft Graph.', 
+							__( 'ERROR: Unexpected response when checking group membership with Microsoft Graph.',
 								'aad-sso-wordpress' )
 						);
 					}
@@ -384,8 +384,14 @@ class AADSSO {
 
 		if ( is_a( $user, 'WP_User' ) ) {
 			$_SESSION['aadsso_signed_in_with_azuread'] = true;
-		}
+				wp_set_current_user($user->ID);
+				wp_set_auth_cookie($user->ID);
+				$user  = get_user_by( 'ID',$user->ID );
+				do_action( 'wp_login', $user->user_login, $user );
+				$redirect_to = home_url();
+				wp_redirect($redirect_to);
 
+		}
 		return $user;
 	}
 
@@ -422,7 +428,7 @@ class AADSSO {
 
 				// Do not create a user if the user is required to be a member of a group, but is not a member
 				// of any of the groups, and there is no fall-back role configured.
-				if ( true === $this->settings->enable_aad_group_to_wp_role 
+				if ( true === $this->settings->enable_aad_group_to_wp_role
 						&& empty( $group_memberships->value )
 						&& empty( $this->settings->default_wp_role ) ) {
 
@@ -471,7 +477,7 @@ class AADSSO {
 				return new WP_Error(
 					'user_not_registered',
 					sprintf(
-						__( 'ERROR: The authenticated user \'%s\' is not a registered user in this site.', 
+						__( 'ERROR: The authenticated user \'%s\' is not a registered user in this site.',
 						    'aad-sso-wordpress' ),
 						$unique_name
 					)
@@ -512,7 +518,7 @@ class AADSSO {
 				'Set roles [%s] for user [%s].', implode( ', ', $roles_to_set ), $user->ID ), 10 );
 		} else if ( ! empty( $this->settings->default_wp_role ) ) {
 			$user->set_role( $this->settings->default_wp_role );
-			AADSSO::debug_log( sprintf( 
+			AADSSO::debug_log( sprintf(
 				'Set default role [%s] for user [%s].', $this->settings->default_wp_role, $user->ID ), 10 );
 		} else {
 			$error_message = sprintf(
@@ -592,7 +598,7 @@ class AADSSO {
 	 */
 	function logout() {
 
-		$signed_in_with_azuread = isset( $_SESSION['aadsso_signed_in_with_azuread'] ) 
+		$signed_in_with_azuread = isset( $_SESSION['aadsso_signed_in_with_azuread'] )
 									&& true === $_SESSION['aadsso_signed_in_with_azuread'];
 		$this->clear_session();
 
@@ -649,7 +655,7 @@ class AADSSO {
 	function print_login_link() {
 		$html = '<p class="aadsso-login-form-text">';
 		$html .= '<a href="%s">';
-		$html .= sprintf( __( 'Sign in with your %s account', 'aad-sso-wordpress' ),
+		$html .= sprintf( __( 'Ingresa con el Correo Uniandes' ),
 		                  htmlentities( $this->settings->org_display_name ) );
 		$html .= '</a><br /><a class="dim" href="%s">'
 		         . __( 'Sign out', 'aad-sso-wordpress' ) . '</a></p>';
