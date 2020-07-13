@@ -124,20 +124,20 @@ class AADSSO_Settings_Page {
 		if( isset( $_GET['aadsso_migrate_from_json_status'] ) ) {
 			if( 'success' === $_GET['aadsso_migrate_from_json_status'] ) {
 				echo '<div id="message" class="notice notice-success"><p>'
-					. __( 'Legacy settings have been migrated and the old configuration file has been deleted.', 'aad-sso-uniandes-wordpress' )
-					. __('To finish migration, unset <code>AADSSO_SETTINGS_PATH</code> from <code>wp-config.php</code>. ', 'aad-sso-uniandes-wordpress')
+					. __( 'Legacy settings have been migrated and the old configuration file has been deleted.', 'aad-sso-wordpress' )
+					. __('To finish migration, unset <code>AADSSO_SETTINGS_PATH</code> from <code>wp-config.php</code>. ', 'aad-sso-wordpress')
 					.'</p></div>';
 			} elseif ( 'manual' === $_GET['aadsso_migrate_from_json_status'] ) {
 				echo '<div id="message" class="notice notice-warning"><p>'
-					. esc_html__( 'Legacy settings have been migrated successfully. ', 'aad-sso-uniandes-wordpress' )
-					. sprintf( __('To finish migration, delete the file at the path <code>%s</code>. ', 'aad-sso-uniandes-wordpress'), AADSSO_SETTINGS_PATH )
-					. sprintf( __('Then, unset <code>AADSSO_SETTINGS_PATH</code> from <code>wp-config.php</code>. ', 'aad-sso-uniandes-wordpress') )
+					. esc_html__( 'Legacy settings have been migrated successfully. ', 'aad-sso-wordpress' )
+					. sprintf( __('To finish migration, delete the file at the path <code>%s</code>. ', 'aad-sso-wordpress'), AADSSO_SETTINGS_PATH )
+					. sprintf( __('Then, unset <code>AADSSO_SETTINGS_PATH</code> from <code>wp-config.php</code>. ', 'aad-sso-wordpress') )
 					.'</p></div>';
 			} elseif( 'invalid_json' === $_GET['aadsso_migrate_from_json_status'] ) {
 				echo '<div id="message" class="notice notice-error"><p>'
-					. sprintf( __('Legacy settings could not be migrated from <code>%s</code>. ', 'aad-sso-uniandes-wordpress'), AADSSO_SETTINGS_PATH )
-					. esc_html( 'File could not be parsed as JSON. ', 'aad-sso-uniandes-wordpress' )
-					. esc_html( 'Delete the file, or check its syntax.', 'aad-sso-uniandes-wordpress' )
+					. sprintf( __('Legacy settings could not be migrated from <code>%s</code>. ', 'aad-sso-wordpress'), AADSSO_SETTINGS_PATH )
+					. esc_html( 'File could not be parsed as JSON. ', 'aad-sso-wordpress' )
+					. esc_html( 'Delete the file, or check its syntax.', 'aad-sso-wordpress' )
 					.'</p></div>';
 			}
 		}
@@ -151,7 +151,7 @@ class AADSSO_Settings_Page {
 		if ( isset( $_GET['aadsso_reset'] ) && 'success' === $_GET['aadsso_reset'] ) {
 			echo '<div id="message" class="notice notice-warning"><p>'
 				. __( 'Single Sign-on with Azure Active Directory settings have been reset to default.',
-					'aad-sso-uniandes-wordpress' )
+					'aad-sso-wordpress' )
 				.'</p></div>';
 		}
 	}
@@ -161,7 +161,7 @@ class AADSSO_Settings_Page {
 	 */
 	public function add_options_page() {
 		$this->options_page_id = add_options_page(
-			__( 'Azure Active Directory Settings', 'aad-sso-uniandes-wordpress' ), // page_title
+			__( 'Azure Active Directory Settings', 'aad-sso-wordpress' ), // page_title
 			'Azure AD', // menu_title
 			'manage_options', // capability
 			'aadsso_settings', // menu_slug
@@ -189,21 +189,21 @@ class AADSSO_Settings_Page {
 
 		add_settings_section(
 			'aadsso_settings_general', // id
-			__( 'General', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'General', 'aad-sso-wordpress' ), // title
 			array( $this, 'settings_general_info' ), // callback
 			'aadsso_settings_page' // page
 		);
 
 		add_settings_section(
 			'aadsso_settings_advanced', // id
-			__( 'Advanced', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Advanced', 'aad-sso-wordpress' ), // title
 			array( $this, 'settings_advanced_info' ), // callback
 			'aadsso_settings_page' // page
 		);
 
 		add_settings_field(
 			'org_display_name', // id
-			__( 'Display name', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Display name', 'aad-sso-wordpress' ), // title
 			array( $this, 'org_display_name_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -211,7 +211,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'org_domain_hint', // id
-			__( 'Domain hint', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Domain hint', 'aad-sso-wordpress' ), // title
 			array( $this, 'org_domain_hint_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -219,7 +219,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'client_id', // id
-			__( 'Client ID', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Client ID', 'aad-sso-wordpress' ), // title
 			array( $this, 'client_id_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -227,7 +227,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'client_secret', // id
-			__( 'Client secret', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Client secret', 'aad-sso-wordpress' ), // title
 			array( $this, 'client_secret_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -235,7 +235,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'redirect_uri', // id
-			__( 'Redirect URL', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Redirect URL', 'aad-sso-wordpress' ), // title
 			array( $this, 'redirect_uri_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -243,7 +243,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'logout_redirect_uri', // id
-			__( 'Logout redirect URL', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Logout redirect URL', 'aad-sso-wordpress' ), // title
 			array( $this, 'logout_redirect_uri_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -251,7 +251,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'enable_full_logout', // id
-			__( 'Enable full logout', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Enable full logout', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_full_logout_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -259,7 +259,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'field_to_match_to_upn', // id
-			__( 'Field to match to UPN', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Field to match to UPN', 'aad-sso-wordpress' ), // title
 			array( $this, 'field_to_match_to_upn_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -267,7 +267,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'match_on_upn_alias', // id
-			__( 'Match on alias of the UPN', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Match on alias of the UPN', 'aad-sso-wordpress' ), // title
 			array( $this, 'match_on_upn_alias_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -275,7 +275,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'enable_auto_provisioning', // id
-			__( 'Enable auto-provisioning', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Enable auto-provisioning', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_auto_provisioning_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -283,7 +283,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'enable_auto_forward_to_aad', // id
-			__( 'Enable auto-forward to Azure AD', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Enable auto-forward to Azure AD', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_auto_forward_to_aad_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -291,7 +291,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'enable_aad_group_to_wp_role', // id
-			__( 'Enable Azure AD group to WP role association', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Enable Azure AD group to WP role association', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_aad_group_to_wp_role_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -299,7 +299,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'default_wp_role', // id
-			__( 'Default WordPress role if not in Azure AD group', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'Default WordPress role if not in Azure AD group', 'aad-sso-wordpress' ), // title
 			array( $this, 'default_wp_role_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -307,7 +307,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'role_map', // id
-			__( 'WordPress role to Azure AD group map', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'WordPress role to Azure AD group map', 'aad-sso-wordpress' ), // title
 			array( $this, 'role_map_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -315,7 +315,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'openid_configuration_endpoint', // id
-			__( 'OpenID Connect configuration endpoint', 'aad-sso-uniandes-wordpress' ), // title
+			__( 'OpenID Connect configuration endpoint', 'aad-sso-wordpress' ), // title
 			array( $this, 'openid_configuration_endpoint_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_advanced' // section
@@ -432,13 +432,13 @@ class AADSSO_Settings_Page {
 	 */
 	function role_map_callback() {
 		printf( '<p>%s</p>',
-			__( 'Map WordPress roles to Azure Active Directory groups.', 'aad-sso-uniandes-wordpress' )
+			__( 'Map WordPress roles to Azure Active Directory groups.', 'aad-sso-wordpress' )
 		);
 		echo '<table>';
 		printf(
 			'<thead><tr><th>%s</th><th>%s</th></tr></thead>',
-			__( 'WordPress Role', 'aad-sso-uniandes-wordpress' ),
-			__( 'Azure AD Group Object ID', 'aad-sso-uniandes-wordpress' )
+			__( 'WordPress Role', 'aad-sso-wordpress' ),
+			__( 'Azure AD Group Object ID', 'aad-sso-wordpress' )
 		);
 		echo '<tbody>';
 		foreach( $this->get_editable_roles( ) as $role_slug => $role ) {
@@ -467,7 +467,7 @@ class AADSSO_Settings_Page {
 		$this->render_text_field( 'org_display_name' );
 		printf(
 			'<p class="description">%s</p>',
-			__( 'Display Name will be shown on the WordPress login screen.', 'aad-sso-uniandes-wordpress' )
+			__( 'Display Name will be shown on the WordPress login screen.', 'aad-sso-wordpress' )
 		);
 	}
 
@@ -480,7 +480,7 @@ class AADSSO_Settings_Page {
 			'<p class="description">%s</p>',
 			__( 'Provides a hint to Azure AD about the domain or tenant they will be logging in to. If '
 			     . 'the domain is federated, the user will be automatically redirected to federation '
-			     . 'endpoint.', 'aad-sso-uniandes-wordpress' )
+			     . 'endpoint.', 'aad-sso-wordpress' )
 		);
 	}
 
@@ -491,7 +491,7 @@ class AADSSO_Settings_Page {
 		$this->render_text_field( 'client_id' );
 		printf(
 			'<p class="description">%s</p>',
-			__( 'The client ID of the Azure AD application representing this blog.', 'aad-sso-uniandes-wordpress' )
+			__( 'The client ID of the Azure AD application representing this blog.', 'aad-sso-wordpress' )
 		);
 	}
 
@@ -502,7 +502,7 @@ class AADSSO_Settings_Page {
 		$this->render_text_field( 'client_secret' );
 		printf(
 			'<p class="description">%s</p>',
-			__( 'A secret key for the Azure AD application representing this blog.', 'aad-sso-uniandes-wordpress' )
+			__( 'A secret key for the Azure AD application representing this blog.', 'aad-sso-wordpress' )
 		);
 	}
 
@@ -515,11 +515,11 @@ class AADSSO_Settings_Page {
 			' <a href="#" onclick="jQuery(\'#redirect_uri\').val(\'%s\'); return false;">%s</a>'
 			. '<p class="description">%s</p>',
 			wp_login_url(),
-			__( 'Set default', 'aad-sso-uniandes-wordpress' ),
+			__( 'Set default', 'aad-sso-wordpress' ),
 			__( 'The URL where the user is redirected to after authenticating with Azure AD. '
 			  . 'This URL must be registered in Azure AD as a valid redirect URL, and it must be a '
 			  . 'page that invokes the "authenticate" filter. If you don\'t know what to set, leave '
-			  . 'the default value (which is this blog\'s login page).', 'aad-sso-uniandes-wordpress' )
+			  . 'the default value (which is this blog\'s login page).', 'aad-sso-wordpress' )
 		);
 	}
 
@@ -532,10 +532,10 @@ class AADSSO_Settings_Page {
 			' <a href="#" onclick="jQuery(\'#logout_redirect_uri\').val(\'%s\'); return false;">%s</a>'
 			. '<p class="description">%s</p>',
 			wp_login_url(),
-			__( 'Set default', 'aad-sso-uniandes-wordpress'),
+			__( 'Set default', 'aad-sso-wordpress'),
 			__( 'The URL where the user is redirected to after signing out of Azure AD. '
 			  . 'This URL must be registered in Azure AD as a valid redirect URL. (This does not affect '
-			  . ' logging out of the blog, it is only used when logging out of Azure AD.)', 'aad-sso-uniandes-wordpress' )
+			  . ' logging out of the blog, it is only used when logging out of Azure AD.)', 'aad-sso-wordpress' )
 		);
 	}
 
@@ -550,17 +550,17 @@ class AADSSO_Settings_Page {
 		?>
 		<select name="aadsso_settings[field_to_match_to_upn]" id="field_to_match_to_upn">
 			<option value="email"<?php echo $selected == 'email' ? ' selected="selected"' : ''; ?>>
-				<?php echo __( 'Email Address', 'aad-sso-uniandes-wordpress' ); ?>
+				<?php echo __( 'Email Address', 'aad-sso-wordpress' ); ?>
 			</option>
 			<option value="login"<?php echo $selected == 'login' ? ' selected="selected"' : ''; ?>>
-				<?php echo __( 'Login Name', 'aad-sso-uniandes-wordpress' ); ?>
+				<?php echo __( 'Login Name', 'aad-sso-wordpress' ); ?>
 			</option>
 		</select>
 		<?php
 		printf(
 			'<p class="description">%s</p>',
 			__( 'This specifies the WordPress user field which will be used to match to the Azure AD user\'s '
-			  . 'UserPrincipalName.', 'aad-sso-uniandes-wordpress' )
+			  . 'UserPrincipalName.', 'aad-sso-wordpress' )
 		);
 	}
 
@@ -572,7 +572,7 @@ class AADSSO_Settings_Page {
 			'match_on_upn_alias',
 			__( 'Match WordPress users based on the alias of their Azure AD UserPrincipalName. For example, '
 			  . 'Azure AD username <code>bob@example.com</code> will match WordPress user <code>bob</code>.',
-			    'aad-sso-uniandes-wordpress' )
+			    'aad-sso-wordpress' )
 		);
 	}
 
@@ -600,7 +600,7 @@ class AADSSO_Settings_Page {
 			'<p class="description">%s</p>',
 			__('This is the default role that users will be assigned to if matching Azure AD group to '
 			 . 'WordPress roles is enabled, but the signed in user isn\'t a member of any of the '
-			 . 'configured Azure AD groups.', 'aad-sso-uniandes-wordpress')
+			 . 'configured Azure AD groups.', 'aad-sso-wordpress')
 		);
 	}
 
@@ -611,7 +611,7 @@ class AADSSO_Settings_Page {
 		$this->render_checkbox_field(
 			'enable_auto_provisioning',
 			__( 'Automatically create WordPress users, if needed, for authenticated Azure AD users.',
-				'aad-sso-uniandes-wordpress' )
+				'aad-sso-wordpress' )
 		);
 	}
 
@@ -622,7 +622,7 @@ class AADSSO_Settings_Page {
 		$this->render_checkbox_field(
 			'enable_auto_forward_to_aad',
 			__( 'Automatically forward users to the Azure AD to sign in, skipping the WordPress login screen.',
-				'aad-sso-uniandes-wordpress')
+				'aad-sso-wordpress')
 		);
 	}
 
@@ -633,7 +633,7 @@ class AADSSO_Settings_Page {
 		$this->render_checkbox_field(
 			'enable_aad_group_to_wp_role',
 			__( 'Automatically assign WordPress user roles based on Azure AD group membership.',
-				'aad-sso-uniandes-wordpress' )
+				'aad-sso-wordpress' )
 		);
 	}
 
@@ -646,12 +646,12 @@ class AADSSO_Settings_Page {
 			' <a href="#" onclick="jQuery(\'#openid_configuration_endpoint\').val(\'%s\'); return false;">%s</a>'
 			. '<p class="description">%s</p>',
 			AADSSO_Settings::get_defaults( 'openid_configuration_endpoint' ),
-			__( 'Set default', 'aad-sso-uniandes-wordpress'),
+			__( 'Set default', 'aad-sso-wordpress'),
 			__( 'The OpenID Connect configuration endpoint to use. To support Microsoft Accounts and external '
 			  . 'users (users invited in from other Azure AD directories, known sometimes as "B2B users") you '
 			  . 'must use: <code>https://login.microsoftonline.com/{tenant-id}/.well-known/openid-configuration</code>, '
 			  . 'where <code>{tenant-id}</code> is the tenant ID or a verified domain name of your directory.',
-				'aad-sso-uniandes-wordpress' )
+				'aad-sso-wordpress' )
 		);
 	}
 
@@ -662,7 +662,7 @@ class AADSSO_Settings_Page {
 		$this->render_checkbox_field(
 			'enable_full_logout',
 			__( 'Do a full logout of Azure AD when logging out of WordPress.',
-				'aad-sso-uniandes-wordpress' )
+				'aad-sso-wordpress' )
 		);
 	}
 

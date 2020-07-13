@@ -7,13 +7,13 @@ Description: Plugin para autenticarse en wordpress usando el servicio de Directo
 Author: Leandro Moreno
 Version: 0.8.0
 Author URI: https://tecnologia.uniandes.edu.co
-Text Domain: aad-sso-uniandes-wordpress
+Text Domain: aad-sso-wordpress
 Domain Path: /languages/
 */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-define( 'AADSSO', 'aad-sso-uniandes-wordpress' );
+define( 'AADSSO', 'aad-sso-wordpress' );
 define( 'AADSSO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'AADSSO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
@@ -116,7 +116,7 @@ class AADSSO {
 	public function load_textdomain()
 	{
 		load_plugin_textdomain(
-			'aad-sso-uniandes-wordpress',
+			'aad-sso-wordpress',
 			false, // deprecated
 			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
 		);
@@ -260,7 +260,7 @@ class AADSSO {
 			if ( ! isset( $_SESSION['aadsso_antiforgery-id'] ) ) {
 				return new WP_Error(
 					'missing_antiforgery_id',
-					__( 'Session does not contain antiforgery ID.', 'aad-sso-uniandes-wordpress')
+					__( 'Session does not contain antiforgery ID.', 'aad-sso-wordpress')
 				);
 			}
 
@@ -271,7 +271,7 @@ class AADSSO {
 			if ( $state_is_missing || $state_doesnt_match ) {
 				return new WP_Error(
 					'antiforgery_id_mismatch',
-					sprintf( __( 'ANTIFORGERY_ID mismatch. Expecting %s', 'aad-sso-uniandes-wordpress' ), $antiforgery_id )
+					sprintf( __( 'ANTIFORGERY_ID mismatch. Expecting %s', 'aad-sso-wordpress' ), $antiforgery_id )
 				);
 			}
 
@@ -294,7 +294,7 @@ class AADSSO {
 				} catch ( Exception $e ) {
 					return new WP_Error(
 						'invalid_id_token',
-						sprintf( __( 'ERROR: Invalid id_token. %s', 'aad-sso-uniandes-wordpress' ), $e->getMessage() )
+						sprintf( __( 'ERROR: Invalid id_token. %s', 'aad-sso-wordpress' ), $e->getMessage() )
 					);
 				}
 
@@ -324,7 +324,7 @@ class AADSSO {
 							'error_checking_group_membership',
 							sprintf(
 								__( 'ERROR: Unable to check group membership with Microsoft Graph: '
-									. '<b>%s</b> %s<br />%s', 'aad-sso-uniandes-wordpress' ),
+									. '<b>%s</b> %s<br />%s', 'aad-sso-wordpress' ),
 								$group_memberships->error->code,
 								$group_memberships->error->message,
 								json_encode( $group_memberships->error->innerError )
@@ -335,7 +335,7 @@ class AADSSO {
 						return new WP_Error(
 							'unexpected_response_to_checkMemberGroups',
 							__( 'ERROR: Unexpected response when checking group membership with Microsoft Graph.',
-								'aad-sso-uniandes-wordpress' )
+								'aad-sso-wordpress' )
 						);
 					}
 				}
@@ -360,14 +360,14 @@ class AADSSO {
 				return new WP_Error(
 					$token->error,
 					sprintf(
-						__( 'ERROR: Could not get an access token to Microsoft Graph. %s', 'aad-sso-uniandes-wordpress' ),
+						__( 'ERROR: Could not get an access token to Microsoft Graph. %s', 'aad-sso-wordpress' ),
 						$token->error_description
 					)
 				);
 			} else {
 
 				// None of the above, I have no idea what happened.
-				return new WP_Error( 'unknown', __( 'ERROR: An unknown error occured.', 'aad-sso-uniandes-wordpress' ) );
+				return new WP_Error( 'unknown', __( 'ERROR: An unknown error occured.', 'aad-sso-wordpress' ) );
 			}
 
 		} elseif ( isset( $_GET['error'] ) ) {
@@ -376,7 +376,7 @@ class AADSSO {
 			return new WP_Error(
 				$_GET['error'],
 				sprintf(
-					__( 'ERROR: Access denied to Microsoft Graph. %s', 'aad-sso-uniandes-wordpress' ),
+					__( 'ERROR: Access denied to Microsoft Graph. %s', 'aad-sso-wordpress' ),
 					$_GET['error_description']
 				)
 			);
@@ -404,7 +404,7 @@ class AADSSO {
 			return new WP_Error(
 				'unique_name_not_found',
 				__( 'ERROR: Neither \'upn\' nor \'unique_name\' claims not found in ID Token.',
-					'aad-sso-uniandes-wordpress' )
+					'aad-sso-wordpress' )
 			);
 		}
 
@@ -439,7 +439,7 @@ class AADSSO {
 						sprintf(
 							__( 'ERROR: Access denied. You\'re not a member of any group granting you '
 							    . 'access to this site. You\'re signed in as \'%s\'.',
-							'aad-sso-uniandes-wordpress' ),
+							'aad-sso-wordpress' ),
 							$unique_name
 						)
 					);
@@ -463,7 +463,7 @@ class AADSSO {
 					return new WP_Error(
 						'user_not_registered',
 						sprintf(
-							__( 'ERROR: Error creating user \'%s\'.', 'aad-sso-uniandes-wordpress' ),
+							__( 'ERROR: Error creating user \'%s\'.', 'aad-sso-wordpress' ),
 							$unique_name
 						)
 					);
@@ -478,7 +478,7 @@ class AADSSO {
 					'user_not_registered',
 					sprintf(
 						__( 'ERROR: The authenticated user \'%s\' is not a registered user in this site.',
-						    'aad-sso-uniandes-wordpress' ),
+						    'aad-sso-wordpress' ),
 						$unique_name
 					)
 				);
@@ -522,7 +522,7 @@ class AADSSO {
 				'Set default role [%s] for user [%s].', $this->settings->default_wp_role, $user->ID ), 10 );
 		} else {
 			$error_message = sprintf(
-				__( 'ERROR: Azure AD user %s is not a member of any group granting a role.', 'aad-sso-uniandes-wordpress' ),
+				__( 'ERROR: Azure AD user %s is not a member of any group granting a role.', 'aad-sso-wordpress' ),
 				$aad_user_id
 			);
 			AADSSO::debug_log( $error_message, 10 );
@@ -628,7 +628,7 @@ class AADSSO {
 	function print_plugin_not_configured() {
 		echo '<div id="message" class="error"><p>'
 		. __( 'Single Sign-on with Azure Active Directory required settings are not defined. '
-		      . 'Update them under Settings > Azure AD.', 'aad-sso-uniandes-wordpress' )
+		      . 'Update them under Settings > Azure AD.', 'aad-sso-wordpress' )
 		      .'</p></div>';
 	}
 
@@ -658,7 +658,7 @@ class AADSSO {
 		$html .= sprintf( __( 'Ingresa con el Correo Uniandes' ),
 		                  htmlentities( $this->settings->org_display_name ) );
 		$html .= '</a><br /><a class="dim" href="%s">'
-		         . __( 'Sign out', 'aad-sso-uniandes-wordpress' ) . '</a></p>';
+		         . __( 'Sign out', 'aad-sso-wordpress' ) . '</a></p>';
 		printf(
 			$html,
 			$this->get_login_url(),

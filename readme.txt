@@ -6,7 +6,7 @@ Tested up to: 5.2.3
 Requires PHP: 5.6
 Stable tag: 0.7.0
 License: MIT
-License URI: https://github.com/psignoret/aad-sso-uniandes-wordpress/blob/master/LICENSE.md
+License URI: https://github.com/psignoret/aad-sso-wordpress/blob/master/LICENSE.md
 
 Sign in to WordPress using your organization's Azure Active Directory accounts (the same ones used to sign in to Office 365).
 
@@ -94,4 +94,4 @@ Once the plugin is activated, update your settings from the WordPress admin cons
 
 == Frequently Asked Questions ==
 
-For more configuration information and bug reports, please visit [plugin's repo on GitHub](https://github.com/psignoret/aad-sso-uniandes-wordpress).
+For more configuration information and bug reports, please visit [plugin's repo on GitHub](https://github.com/psignoret/aad-sso-wordpress).

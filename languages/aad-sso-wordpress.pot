@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.4\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-WPHeader: aad-sso-uniandes-wordpress.php\n"
+"X-Poedit-WPHeader: aad-sso-wordpress.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -240,83 +240,83 @@ msgstr ""
 msgid "Do a full logout of Azure AD when logging out of WordPress."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:263
+#: aad-sso-wordpress.php:263
 msgid "Session does not contain antiforgery ID."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:274
+#: aad-sso-wordpress.php:274
 #, php-format
 msgid "ANTIFORGERY_ID mismatch. Expecting %s"
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:297
+#: aad-sso-wordpress.php:297
 #, php-format
 msgid "ERROR: Invalid id_token. %s"
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:326
+#: aad-sso-wordpress.php:326
 #, php-format
 msgid ""
 "ERROR: Unable to check group membership in Azure AD: <b>%s</b> %s<br />%s"
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:337
+#: aad-sso-wordpress.php:337
 msgid "ERROR: Unexpected response when checking group membership in Azure AD."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:363
+#: aad-sso-wordpress.php:363
 #, php-format
 msgid "ERROR: Could not get an access token to Microsoft Graph. %s"
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:370
+#: aad-sso-wordpress.php:370
 msgid "ERROR: An unknown error occured."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:379
+#: aad-sso-wordpress.php:379
 #, php-format
 msgid "ERROR: Access denied to Microsoft Graph. %s"
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:400
+#: aad-sso-wordpress.php:400
 msgid "ERROR: Neither 'upn' nor 'unique_name' claims not found in ID Token."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:434
+#: aad-sso-wordpress.php:434
 #, php-format
 msgid ""
 "ERROR: Access denied. You're not a member of any group granting you access "
 "to this site. You're signed in as '%s'."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:460
+#: aad-sso-wordpress.php:460
 #, php-format
 msgid "ERROR: Error creating user '%s'."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:474
+#: aad-sso-wordpress.php:474
 #, php-format
 msgid ""
 "ERROR: The authenticated user '%s' is not a registered user in this site."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:519
+#: aad-sso-wordpress.php:519
 #, php-format
 msgid "ERROR: Azure AD user %s is not a member of any group granting a role."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:624
+#: aad-sso-wordpress.php:624
 msgid ""
 "Single Sign-on with Azure Active Directory required settings are not "
 "defined. Update them under Settings > Azure AD."
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:652
+#: aad-sso-wordpress.php:652
 #, php-format
 msgid "Sign in with your %s account"
 msgstr ""
 
-#: aad-sso-uniandes-wordpress.php:655
+#: aad-sso-wordpress.php:655
 msgid "Sign out"
 msgstr ""
 
@@ -392,7 +392,7 @@ msgid ""
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://github.com/psignoret/aad-sso-uniandes-wordpress"
+msgid "http://github.com/psignoret/aad-sso-wordpress"
 msgstr ""
 
 #. Description of the plugin/theme
