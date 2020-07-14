@@ -3,9 +3,18 @@
 	padding: 20px 0px 30px 0px;
 }
 
-.aadsso-login-form-text a.dim, 
-.aadsso-login-form-text a.dim:visited, 
-.aadsso-login-form-text a.dim:active, 
+.aadsso-login-form-text a{
+
+}
+.button-sso{
+	backgroud: #ffd400;
+	border-color: #ffd400;
+	color: black;
+}
+
+.aadsso-login-form-text a.dim,
+.aadsso-login-form-text a.dim:visited,
+.aadsso-login-form-text a.dim:active,
 .aadsso-login-form-text a.dim:link {
 	text-decoration: none;
 	color: #aaa;

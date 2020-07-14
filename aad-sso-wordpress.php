@@ -652,7 +652,7 @@ class AADSSO {
 	 */
 	function print_login_link() {
 		$html = '<p class="aadsso-login-form-text">';
-		$html .= '<a class="button button-primary button-large" href="%s">';
+		$html .= '<a class="button button-sso button-large" href="%s">';
 		$html .= sprintf( __( 'Ingresa con el Correo Uniandes' ),
 		                  htmlentities( $this->settings->org_display_name ) );
 		$html .= '</a><br /><a class="dim" href="%s">'
