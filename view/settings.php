@@ -1,6 +1,6 @@
 <div class="wrap">
 
-	<h2><?php echo esc_html__( 'Single Sign-on with Azure Active Directory' , 'aad-sso-wordpress' ); ?></h2>
+	<h2><?php echo esc_html__( 'Single Sign-on con el Directorio activo de Azure' , 'aad-sso-wordpress' ); ?></h2>
 	<p><?php echo esc_html__( 'Settings for configuring single sign-on with Azure Active Directory can be configured here.' , 'aad-sso-wordpress' ); ?></p>
 
 	<form method="post" action="options.php">
@@ -11,8 +11,8 @@
 		?>
 	</form>
 
-	<h3><?php echo esc_html__( 'Reset Plugin' , 'aad-sso-wordpress' ); ?></h3>
-	<p><?php echo esc_html__( 'Resetting the plugin will completely remove all settings.' , 'aad-sso-wordpress' ); ?></p>
+	<h3><?php echo esc_html__( 'Restablecer el plugin' , 'aad-sso-wordpress' ); ?></h3>
+	<p><?php echo esc_html__( 'Restablecer el plugin borrara todas las configuraciones.' , 'aad-sso-wordpress' ); ?></p>
 	<p>
 		<?php
 		printf(
@@ -22,8 +22,8 @@
 				'aadsso_reset_settings',
 				'aadsso_nonce'
 			),
-			esc_html__( 'Reset Settings' , 'aad-sso-wordpress' ),
-			esc_html__( 'Reset the plugin to default settings. Careful, there is no undo for this.' , 'aad-sso-wordpress' )
+			esc_html__( 'Restablecer las configuraciones' , 'aad-sso-wordpress' ),
+			esc_html__( 'Restablecer las configuraciones predeterminadas. Con cuidado, esto no se puede deshacer.' , 'aad-sso-wordpress' )
 		)
 		?>
 	</p>
@@ -32,13 +32,13 @@
 		<p><?php printf(
 			esc_html__( 'Old configuration data was found at %s.' , 'aad-sso-wordpress' ),
 			sprintf( '<code>%s</code>', esc_html( AADSSO_SETTINGS_PATH ) )
-		); ?>  
+		); ?>
 			<?php echo esc_html__( 'This configuration data can be migrated automatically.' , 'aad-sso-wordpress' ); ?></p>
 		<p><?php printf(
 				esc_html__( 'Delete the file at %s to hide this migration utility.' , 'aad-sso-wordpress' ),
 				sprintf( '<code>%s</code>', esc_html( AADSSO_SETTINGS_PATH ) )
 			); ?></p>
-		
+
 		<?php // The web server must have write permission on the parent directory for this to succeed. ?>
 		<?php if( is_writable( AADSSO_SETTINGS_PATH ) && is_writable( dirname( AADSSO_SETTINGS_PATH ) ) ): ?>
 		<p><?php printf(
@@ -51,7 +51,7 @@
 					sprintf( '<code>%s</code>', esc_html( AADSSO_SETTINGS_PATH ) )
 				); ?></p>
 		<?php endif; ?>
-		
+
 		<p><?php
 		printf(
 			'<a href="%s" class="button">%s</a> <span class="description">%s</span>',
@@ -64,6 +64,6 @@
 			esc_html__( 'Migrate settings from old plugin versions to new configuration. This will overwrite existing settings! Careful, there is no undo for this.' , 'aad-sso-wordpress' )
 		)
 		?></p>
-		
+
 	<?php endif; ?>
 </div>

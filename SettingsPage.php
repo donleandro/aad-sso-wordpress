@@ -196,14 +196,14 @@ class AADSSO_Settings_Page {
 
 		add_settings_section(
 			'aadsso_settings_advanced', // id
-			__( 'Advanced', 'aad-sso-wordpress' ), // title
+			__( 'Avanzado', 'aad-sso-wordpress' ), // title
 			array( $this, 'settings_advanced_info' ), // callback
 			'aadsso_settings_page' // page
 		);
 
 		add_settings_field(
 			'org_display_name', // id
-			__( 'Display name', 'aad-sso-wordpress' ), // title
+			__( 'Nombre a mostrar', 'aad-sso-wordpress' ), // title
 			array( $this, 'org_display_name_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -248,10 +248,10 @@ class AADSSO_Settings_Page {
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
 		);
-		
+
 		add_settings_field(
 			'enable_full_logout', // id
-			__( 'Enable full logout', 'aad-sso-wordpress' ), // title
+			__( 'Logout completo', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_full_logout_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -259,7 +259,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'field_to_match_to_upn', // id
-			__( 'Field to match to UPN', 'aad-sso-wordpress' ), // title
+			__( 'Campo a comparar con UPN', 'aad-sso-wordpress' ), // title
 			array( $this, 'field_to_match_to_upn_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -267,7 +267,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'match_on_upn_alias', // id
-			__( 'Match on alias of the UPN', 'aad-sso-wordpress' ), // title
+			__( 'Comparar con el alias del UPN', 'aad-sso-wordpress' ), // title
 			array( $this, 'match_on_upn_alias_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -275,7 +275,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'enable_auto_provisioning', // id
-			__( 'Enable auto-provisioning', 'aad-sso-wordpress' ), // title
+			__( 'Hbilitar auto aprovisionamiento', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_auto_provisioning_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -283,7 +283,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'enable_auto_forward_to_aad', // id
-			__( 'Enable auto-forward to Azure AD', 'aad-sso-wordpress' ), // title
+			__( 'Habilitar redirección automatica a Azure AD', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_auto_forward_to_aad_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -291,7 +291,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'enable_aad_group_to_wp_role', // id
-			__( 'Enable Azure AD group to WP role association', 'aad-sso-wordpress' ), // title
+			__( 'Habilitar la asosiación de grupos con Azure AD', 'aad-sso-wordpress' ), // title
 			array( $this, 'enable_aad_group_to_wp_role_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -299,7 +299,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'default_wp_role', // id
-			__( 'Default WordPress role if not in Azure AD group', 'aad-sso-wordpress' ), // title
+			__( 'Rol predeterminado no es un grupo de Azure AD', 'aad-sso-wordpress' ), // title
 			array( $this, 'default_wp_role_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_general' // section
@@ -315,7 +315,7 @@ class AADSSO_Settings_Page {
 
 		add_settings_field(
 			'openid_configuration_endpoint', // id
-			__( 'OpenID Connect configuration endpoint', 'aad-sso-wordpress' ), // title
+			__( 'Punto de conexión del OpenID endpoint', 'aad-sso-wordpress' ), // title
 			array( $this, 'openid_configuration_endpoint_callback' ), // callback
 			'aadsso_settings_page', // page
 			'aadsso_settings_advanced' // section
