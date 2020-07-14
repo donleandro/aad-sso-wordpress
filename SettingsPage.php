@@ -621,7 +621,7 @@ class AADSSO_Settings_Page {
 	public function enable_auto_forward_to_aad_callback() {
 		$this->render_checkbox_field(
 			'enable_auto_forward_to_aad',
-			__( 'Automatically forward users to the Azure AD to sign in, skipping the WordPress login screen.',
+			__( 'Redirigir automaticamente a los usuarios al login de Azure AD, saltandose el login de wordpress. Si esto llega a fallar puede agregar al final "?aadsso_no_redirect=uniandes" como /wp-login.php?aadsso_no_redirect=uniandes .',
 				'aad-sso-wordpress')
 		);
 	}
