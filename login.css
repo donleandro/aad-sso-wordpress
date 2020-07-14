@@ -7,9 +7,9 @@
 
 }
 .button-sso{
-	backgroud: #ffd400;
-	border-color: #ffd400;
-	color: black;
+	background: #ffd400 !important;
+	border-color: #ffd400!important;
+	color: black!important;
 }
 
 .aadsso-login-form-text a.dim,
