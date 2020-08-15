@@ -35,7 +35,8 @@ Con estos pasos, creará un registro de la aplicación Azure AD. Esto proporcion
 
 2. Navigate to the [**Azure Active Directory**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade) blade, and enter the [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) section.
 
-    ![Clicking Azure Active Directory](https://user-images.githubusercontent.com/231140/29496874-6cf6f722-85dc-11e7-8898-89db80593ffc.png) <br />
+    ![Clicking Azure Active Directory](https://user-images.githubusercontent.com/231140/29496874-6cf6f722-85dc-11e7-8898-89db80593ffc.png) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdonleandro%2Faad-sso-wordpress.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdonleandro%2Faad-sso-wordpress?ref=badge_shield)
+<br />
     ![Clicking App registrations](https://user-images.githubusercontent.com/231140/29496884-9b3693ae-85dc-11e7-89a0-77e80979af23.png)
 
 3. Choose **New registration**.
@@ -226,3 +227,7 @@ Most of the OpenID Connect endpoints and configuration (e.g. signing keys, etc.)
 If you've configured this plugin to automatically redirect to Azure AD for sign-in, but something is misconfigured, you may find yourself locked out of your site's admin dashboard.
 
 To log in to your site *without* automatically redirecting to Azure AD (thus giving you an opportunity to enter a regular username and password), you can append `?aadsso_no_redirect=please` to the login URL. For example, if your login URL is `https://example.com/wp-login.php`, navigating to `https://example.com/wp-login.php?aadsso_no_redirect=please` will prevent any automatic redirects.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdonleandro%2Faad-sso-wordpress.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdonleandro%2Faad-sso-wordpress?ref=badge_large)
